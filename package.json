@@ -1,0 +1,38 @@
+{
+  "name": "@remakejs/remake",
+  "version": "0.0.1",
+  "description": "Minimal SPA/SSR framework",
+  "main": "dist/index.cjs",
+  "module": "src/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "workspaces": [
+    ".",
+    "test",
+    "example"
+  ],
+  "scripts": {
+    "test": "npm run test -w test",
+    "example": "npm run dev -w example",
+    "build": "npm run build:cjs",
+    "build:cjs": "esbuild src/index.mjs --format=cjs --outfile=dist/index.cjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remakejs/remake.git"
+  },
+  "author": "eihigh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/remakejs/remake/issues"
+  },
+  "homepage": "https://github.com/remakejs/remake#readme"
+}
