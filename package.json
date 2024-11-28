@@ -29,6 +29,9 @@
     "type": "git",
     "url": "git+https://github.com/remakejs/remake.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "eihigh",
   "license": "MIT",
   "bugs": {
