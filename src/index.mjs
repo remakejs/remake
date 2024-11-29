@@ -244,12 +244,16 @@ function remakeElement(parent, tagName, key) {
 
 	// auto key generation
 	if (key == null) {
-		if (parent.__tTagCounts !== t) {
-			parent.__tTagCounts = t;
+		if (parent.__tTagCounts == null) {
+			parent.__tTagCounts = {};
 			parent.__tagCounts = {};
 		}
+		if (parent.__tTagCounts[tagName] !== t) {
+			parent.__tTagCounts[tagName] = t;
+			parent.__tagCounts[tagName] = 0;
+		}
 
-		const tagCount = parent.__tagCounts[tagName] || 0;
+		const tagCount = parent.__tagCounts[tagName];
 		key = `auto ${tagName} ${tagCount}`;
 		parent.__tagCounts[tagName] = tagCount + 1;
 
